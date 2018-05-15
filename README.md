@@ -3,6 +3,14 @@
 This application is used to organize a prediction game for the Russia 2018 World Cup.
 
 ## How does it work?
+- Send welcome email to participants in database.
+- Set the `sent_preds` column in the [db](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0) to 1 when you receive the complete file from the participant.
+- Send file recordatory email to remind users in database to send their predictions.
+- Send pay recordatory email to remind users in database to make their payment.
+- Set the `paid` column in the [db](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0) to 1 when you receive the payment from the participant.
+- Send the kickoff mail when it's ready to start.
+- Update the [standings](https://docs.google.com/spreadsheets/d/1G6YWsskdMQR7TxTU_Qk158jkXrG61tnfbVX7a7RTmRg/edit#gid=0) and send the follow up mail when you want to inform the standings up to date.
+- Send the close mail to finish the game and inform winners & their respective prizes.
 
 ## Getting Started
 
@@ -19,11 +27,11 @@ Go in the directory of the repo and run:
 You will need credentials for google drive & gmail. For this you have to:
 - Create a file in the repo called `google_credentials.py` where you name the variables `GOOGLE_PASS` and `GOOGLE_USERNAME`.
 - Generate credentials for [Google Spreadsheet](https://console.developers.google.com/flows/enableapi?apiid=sheets.googleapis.com&pli=1) and save the file called `client_secret.json` in the repo directory.
-- Enable gmail access to non secure apps. For more info read this [tutorial](https://support.google.com/cloudidentity/answer/6260879?hl=en)
+- Enable gmail access to non secure apps. For more info read this [tutorial](https://support.google.com/cloudidentity/answer/6260879?hl=en).
 
 ### 4. Build Database in Google Spreadsheets
 You will need to create 2 spreadsheets:
-- The [participants databese](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0). You will see that it will be updated as the sincronized mails are sent.
+- The [participants databese](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0). You will see that it will be updated as the sincronized mails are sent. The columns in green are only ones that have to be updated manually.
 - The [standings](https://docs.google.com/spreadsheets/d/1G6YWsskdMQR7TxTU_Qk158jkXrG61tnfbVX7a7RTmRg/edit?usp=drive_web&ouid=110894318773281496189). This file will have to be updated manually when the follow up mail needs to be sent.
 
 ### 5. Insert Constants
