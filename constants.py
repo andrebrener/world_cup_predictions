@@ -4,8 +4,9 @@ from datetime import date
 
 EMAIL_ADDRESS = 'Predictions Russia 2018 <hello@prode.com>'
 
-PARTICIPANTS_RANGE_NAME = 'Hoja 1!a2:k'
 PARTICIPANTS_SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0'
+PARTICIPANTS_RANGE_NAME = 'Hoja 1!a2:k'
+
 POSITIONS_SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1G6YWsskdMQR7TxTU_Qk158jkXrG61tnfbVX7a7RTmRg/edit#gid=0'
 POSITIONS_RANGE_NAME = 'Hoja 1!a2:b'
 
