@@ -3,11 +3,11 @@
 This application is used to organize a prediction game for the Russia 2018 World Cup.
 
 ## How does it work?
-- Send welcome email to participants in database.
-- Set the `sent_preds` column in the [db](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0) to 1 when you receive the complete file from the participant.
+- Send welcome email to participants in [database](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0).
+- Set the `sent_preds` column in the [database](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0) to 1 when you receive the complete file from the participant.
 - Send file recordatory email to remind users in database to send their predictions.
 - Send pay recordatory email to remind users in database to make their payment.
-- Set the `paid` column in the [db](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0) to 1 when you receive the payment from the participant.
+- Set the `paid` column in the [database](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0) to 1 when you receive the payment from the participant.
 - Send the kickoff mail when it's ready to start.
 - Update the [standings](https://docs.google.com/spreadsheets/d/1G6YWsskdMQR7TxTU_Qk158jkXrG61tnfbVX7a7RTmRg/edit#gid=0) and send the follow up mail when you want to inform the standings up to date.
 - Send the close mail to finish the game and inform winners & their respective prizes.
