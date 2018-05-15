@@ -136,9 +136,9 @@ def update_data(
 def update_spreadsheet(
     df, to_send_df, update_col, spreadsheet_url, range_name
 ):
-    to_send_ids = to_send_df['id'].tolist()
+    to_send_emails = to_send_df['email'].tolist()
     df[update_col] = df.apply(
-        lambda x: 1 if x['id'] in to_send_ids else x[update_col], axis=1
+        lambda x: 1 if x['email'] in to_send_emails else x[update_col], axis=1
     )
 
     values_list = df.values.tolist()
