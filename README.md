@@ -12,6 +12,13 @@ This application is used to organize a prediction game for the Russia 2018 World
 - Update the [standings](https://docs.google.com/spreadsheets/d/1G6YWsskdMQR7TxTU_Qk158jkXrG61tnfbVX7a7RTmRg/edit#gid=0) and send the follow up mail when you want to inform the standings up to date.
 - Send the close mail to finish the game and inform winners & their respective prizes.
 
+## The prediction file
+The Excel file has 3 spreadsheets:
+`Rules`: it explains in detail how each participant sums points in the game.
+`My Prediction`: the participant must fill this spreadsheet with their predictions.
+`Results`: this spreadsheet is to keep track of the points earned. By completing it with actual results, the predictions spreadsheet will be updated with the score.
+
+
 ## Getting Started
 
 ### 1. Clone Repo
