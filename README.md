@@ -31,7 +31,7 @@ You will need credentials for google drive & gmail. For this you have to:
 
 ### 4. Build Database in Google Spreadsheets
 You will need to create 2 spreadsheets:
-- The [participants databese](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0). You will see that it will be updated as the sincronized mails are sent. The columns in green are only ones that have to be updated manually.
+- The [participants databese](https://docs.google.com/spreadsheets/d/11cWCvKKpMgipz2Lrw-medLg8ZPDhaSkRC-FlLBm-ePg/edit#gid=0). You will see that it will be updated automatically as the mails are sent. The columns in green are only ones that have to be updated manually.
 - The [standings](https://docs.google.com/spreadsheets/d/1G6YWsskdMQR7TxTU_Qk158jkXrG61tnfbVX7a7RTmRg/edit?usp=drive_web&ouid=110894318773281496189). This file will have to be updated manually when the follow up mail needs to be sent.
 
 ### 5. Insert Constants
