@@ -26,3 +26,4 @@ PAY_RECORDATORY_EMAIL_SUBJECT = "Don't miss the challenge!"
 FILE_RECORDATORY_EMAIL_SUBJECT = "Don't forget to send you predictions!"
 
 FILE_NAME = 'Rusia 2018 Predictions.xlsx'
+PREDICTIONS_FILE_NAME = 'Seguimiento.xlsx'

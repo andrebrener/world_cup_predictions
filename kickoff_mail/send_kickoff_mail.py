@@ -17,7 +17,8 @@ from mails import send_customized_mail, send_mail
 from config import config
 from constants import (
     FIRST_PRIZE, KICKOFF_EMAIL_SUBJECT, PARTICIPANTS_RANGE_NAME,
-    PARTICIPANTS_SPREADSHEET_URL, SECOND_PRIZE, THIRD_PRIZE
+    PARTICIPANTS_SPREADSHEET_URL, PREDICTIONS_FILE_NAME, SECOND_PRIZE,
+    THIRD_PRIZE
 )
 from get_gdrive_data import get_participants
 from gdrive_connector import update_spreadsheet
@@ -34,6 +35,8 @@ def send_kickoff_mail():
     to_send_df = df[(df['kickoff_mail'] == 0) & (df['sent_preds'] > 0) &
                     (df['paid'] > 0)]
 
+    file_dir = os.path.join(PROJECT_DIR, PREDICTIONS_FILE_NAME)
+
     context = {
         'first_prize': FIRST_PRIZE,
         'second_prize': SECOND_PRIZE,
@@ -48,7 +51,7 @@ def send_kickoff_mail():
         CURRENT_DIR,
         KICKOFF_EMAIL_SUBJECT,
         context,
-        files=None
+        files=[file_dir]
     )
 
     update_spreadsheet(
