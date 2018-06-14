@@ -2,3 +2,4 @@ pandas
 numpy
 jinja2
 google-api-python-client
+xlrd
