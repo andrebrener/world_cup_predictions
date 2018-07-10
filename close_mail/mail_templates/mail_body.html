@@ -4,7 +4,7 @@
   <!-- NAME: 1 COLUMN -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLOSE MAIL</title>
+  <title>POSITION MAIL</title>
 
   <style type="text/css">
     img,
@@ -226,26 +226,37 @@
                                           <tr>
                                             <td style="text-align:left;padding:15px;line-height:1.4;font-size:18px;color:#444">
                                               <div style="margin-top:20px">
-                                                <span>Hola
+                                                <span>Hello
                                                   {{name}},</span>
                                                 <div style="width:80px;border-bottom:2px
                                                 solid #e5ad06;margin-top:10px"></div>
                                               </div>
                                               <p>
-                                                {{prize_message}}
+                                                It was a pleasure for us that you have participated in the World Cup Prediction game.
                                               </p>
 
                                               <p>
-                                                La siguiente tabla muestra todas las posiciones al final de la competencia.
+                                                The winners are:
+                                              </p>
+
+                                              <ol>
+                                                <li>{{first_winner}}</li>
+                                                <li>{{second_winner}}</li>
+                                                <li>{{third_winner}}</li>
+                                              </ol>
+
+
+                                              <p>
+                                                And these are the final standings.
                                               </p>
 
 
                                               <table class="action-table">
                                                 <thead>
                                                   <tr>
-                                                    <th class="first-cell">Posición</th>
-                                                    <th>Nombre</th>
-                                                    <th>Puntaje</th>
+                                                    <th class="first-cell">Position</th>
+                                                    <th>Name</th>
+                                                    <th>Score</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
@@ -256,7 +267,7 @@
                                               </br>
 
                                               <p>
-                                                Nos vemos en Qatar!
+                                                See you in Qatar!
                                               </p>
 
                                             </td>
@@ -280,7 +291,8 @@
     padding-right: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
-    padding-top: 20px;"> </div>
+    padding-top: 20px;">
+                              </div>
                             </td>
                           </tr>
                         </tbody>
