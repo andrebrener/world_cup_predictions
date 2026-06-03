@@ -108,7 +108,7 @@ def get_positions():
     result_dict = {}
     for sn, df in excel_dict.items():
         if len(sn) > 5 and sn not in ['Reglamento', 'Resultados Reales']:
-            result_dict[sn] = [df.ix[2, 8]]
+            result_dict[sn] = [df.iloc[2, 8]]
 
     df = pd.DataFrame(result_dict).T.reset_index()
     df.columns = ['name', 'score']
@@ -122,11 +122,15 @@ def send_follow_up_mail():
         PARTICIPANTS_SPREADSHEET_URL, PARTICIPANTS_RANGE_NAME
     )
 
-    part_df['name'] = part_df['first_name'] + ' ' + part_df['surname']
-
     pos_df = get_positions()
 
-    df = pd.merge(pos_df, part_df)
+    # Rank participants by score so the standings (and the support message)
+    # reflect their current position, 1 being the leader.
+    pos_df = pos_df.sort_values('score', ascending=False).reset_index(drop=True)
+    pos_df['position'] = pos_df.index + 1
+
+    # `get_participants` returns a `name` column already, so merge on it.
+    df = pd.merge(pos_df, part_df, on='name')
 
     df['support_message'] = df['position'].apply(get_support_message)
 
