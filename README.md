@@ -19,6 +19,18 @@ The Excel file has 3 spreadsheets:
 - `Results`: this spreadsheet is to keep track of the points earned. By completing it with actual results, the predictions spreadsheet will be updated with the score.
 
 
+## Requirements
+
+- Python 3.6+
+- The packages listed in [requirements.txt](requirements.txt): `pandas`,
+  `numpy`, `jinja2`, `pyyaml`, `openpyxl`/`xlrd` (Excel), and
+  `google-api-python-client` + `httplib2` + `oauth2client` for Google Sheets
+  access.
+
+> Note: `oauth2client` is deprecated and unmaintained. The Google Sheets
+> connector still uses it; migrating to `google-auth` /
+> `google-auth-oauthlib` is a known follow-up.
+
 ## Getting Started
 
 ### 1. Clone Repo
@@ -34,7 +46,10 @@ Go in the directory of the repo and run:
 You will need credentials for google drive & gmail. For this you have to:
 - Create a file in the repo called `google_credentials.py` where you name the variables `GOOGLE_PASS` and `GOOGLE_USERNAME`.
 - Generate credentials for [Google Spreadsheet](https://console.developers.google.com/flows/enableapi?apiid=sheets.googleapis.com&pli=1) and save the file called `client_secret.json` in the repo directory.
-- Enable gmail access to non secure apps. For more info read this [tutorial](https://support.google.com/cloudidentity/answer/6260879?hl=en).
+- For Gmail SMTP, set `GOOGLE_PASS` to a [Google App Password](https://support.google.com/accounts/answer/185833). Google removed the "less secure apps" / "non-secure apps" toggle in 2022, so an App Password (with 2-Step Verification enabled) is now required — the old toggle no longer works.
+
+> `google_credentials.py` and `client_secret.json` hold secrets and are
+> git-ignored; create them locally and never commit them.
 
 ### 4. Build Database in Google Spreadsheets
 You will need to create 2 spreadsheets:

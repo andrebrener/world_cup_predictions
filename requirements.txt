@@ -1,5 +1,25 @@
-pandas
-numpy
-jinja2
-google-api-python-client
-xlrd
+# Core data handling
+pandas>=1.0,<2.0
+numpy>=1.18,<2.0
+
+# Email body templating
+jinja2>=2.10,<4.0
+
+# config.yaml parsing (config.py)
+pyyaml>=5.1
+
+# Reading the predictions .xlsx (sheet_name=None).
+# Modern xlrd dropped .xlsx support, so openpyxl is required for the
+# follow_up/close standings; xlrd is kept only for legacy .xls files.
+openpyxl>=3.0
+xlrd>=1.2
+
+# Google Sheets access (gdrive_connector.py)
+google-api-python-client>=1.7
+httplib2>=0.12
+
+# NOTE: oauth2client is deprecated and unmaintained (since 2017). The 2018
+# OAuth flow in gdrive_connector.py still imports it. Pinned here so the
+# legacy code installs; migrating to google-auth + google-auth-oauthlib is
+# tracked separately and out of scope for this cleanup.
+oauth2client>=4.1,<5.0

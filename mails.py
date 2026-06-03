@@ -18,9 +18,25 @@ from email.mime.application import MIMEApplication
 import jinja2
 
 from constants import EMAIL_ADDRESS
-from google_credentials import GOOGLE_PASS, GOOGLE_USERNAME
 
 logger = logging.getLogger('main_logger.' + __name__)
+
+
+def get_credentials():
+    """Resolve SMTP credentials.
+
+    Prefers a local ``google_credentials.py`` (see README); falls back to the
+    SES_ACCESS_KEY_ID / SES_SECRET_ACCESS_KEY environment variables when that
+    module is not present.
+    """
+    try:
+        from google_credentials import GOOGLE_PASS, GOOGLE_USERNAME
+        return GOOGLE_USERNAME, GOOGLE_PASS
+    except ImportError:
+        return (
+            os.environ.get('SES_ACCESS_KEY_ID'),
+            os.environ.get('SES_SECRET_ACCESS_KEY'),
+        )
 
 
 def render(tpl_path, context):
@@ -31,11 +47,7 @@ def render(tpl_path, context):
 
 def send_mail(send_to, subject, mail_body, files=None):
 
-    try:
-        user_address, password = GOOGLE_USERNAME, GOOGLE_PASS
-    except (FileNotFoundError):
-        user_address = os.environ.get('SES_ACCESS_KEY_ID', None)
-        password = os.environ.get('SES_SECRET_ACCESS_KEY', None)
+    user_address, password = get_credentials()
 
     from_address = EMAIL_ADDRESS
     msg = MIMEMultipart()

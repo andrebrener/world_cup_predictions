@@ -105,11 +105,11 @@ def get_positions():
     result_dict = {}
     for sn, df in excel_dict.items():
         if len(sn) > 5 and sn not in ['Reglamento', 'Resultados Reales']:
-            result_dict[sn] = [int(df.ix[2, 8])]
+            result_dict[sn] = [int(df.iloc[2, 8])]
 
     df = pd.DataFrame(result_dict).T.reset_index()
     df.columns = ['name', 'score']
-    df = df.sort_values('score', ascending=False)
+    df = df.sort_values('score', ascending=False).reset_index(drop=True)
 
     winners_df = df.head(3)
 
@@ -150,11 +150,12 @@ def send_close_mail():
         PARTICIPANTS_SPREADSHEET_URL, PARTICIPANTS_RANGE_NAME
     )
 
-    part_df['name'] = part_df['first_name'] + ' ' + part_df['surname']
-
     pos_df = get_positions()
 
-    df = pd.merge(pos_df, part_df)
+    # `get_participants` returns a `name` column already, so merge on it.
+    # `pos_df` is pre-sorted by score (best first); preserve that order so
+    # the position numbering below is correct.
+    df = pd.merge(pos_df, part_df, on='name')
 
     df['position'] = df.index + 1
 
