@@ -1,0 +1,27 @@
+# Local credentials (never commit) — created locally per README
+google_credentials.py
+client_secret.json
+*credentials*.json
+
+# OAuth tokens cache
+.credentials/
+
+# Runtime logs
+prode.log
+*.log
+
+# Python build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+.cache/
+
+# macOS
+.DS_Store
